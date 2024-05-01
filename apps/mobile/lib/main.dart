@@ -4,7 +4,6 @@ import 'package:flutter_config/flutter_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fl_chart/fl_chart.dart'; // Import fl_chart library
 
-import 'Family.dart';
 import 'getPhoneNumber.dart';
 import 'getPermissions.dart';
 import 'Home.dart';
@@ -213,7 +212,7 @@ class CustomNavigationBar extends StatelessWidget {
         ),
         NavigationDestination(
           icon: Icon(Icons.chat_outlined), // Added chat icon here
-          selectedIcon: Icon(Icons.chat),
+          selectedIcon: Icon(Icons.family_restroom),
           label: 'Chat',
         ),
         NavigationDestination(
@@ -281,6 +280,7 @@ class _MyAppState extends State<MyApp> {
             widget.phoneNumber == null ? GetPhoneNumber() : Home(),
             widget.permissionsGranted ? WeatherScreen() : GetPermissions(),
             widget.permissionsGranted ? FamilySpaceScreen() : GetPermissions(),
+            if (_selectedIndex == 3) DVScreen(counter: widget.counter),
             //<------------------ADD MORE OPTIONS AS NEEDED----------------->
           ],
         ),
